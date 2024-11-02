@@ -27,20 +27,25 @@ const SearchResults = () => {
   return (
     <div className="container mx-auto py-12">
       <h2 className="text-3xl font-bold mb-8">Results for "{query}"</h2>
-      {loading ? (
-        <Spinner />
-      ) : (
-        movies.length > 0 ? (
+
+       { loading ? ( <Spinner /> ) : ( movies.length > 0 ? (
+
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+
             {movies.map((movie) => (
-              <div key={movie.imdbID} className="card bg-base-100 shadow-xl">
+              <div
+               key={movie.imdbID}
+                className="card bg-base-100 shadow-xl">
                 <figure><img src={movie.Poster} alt={movie.Title} /></figure>
+
                 <div className="card-body">
+
                   <h2 className="card-title">{movie.Title}</h2>
                   <p>{movie.Year}</p>
-                  <p>{movie.imdbID}</p>
+
                   <div className="card-actions justify-end">
                     <Link to={`/movie/${movie.imdbID}`} className="btn btn-outline">Details</Link>
+
                   </div>
                 </div>
               </div>
